@@ -20,7 +20,7 @@ After that, install this plugin with NPM:
 npm i medusa-marketplace
 ```
 
-You can then import each of the `MarketplaceModule` into `src/main.ts`:
+You can then import each of the modules into `src/main.ts`:
 
 ```typescript
 import { ProductModule, UserModule, StoreModule } from 'medusa-marketplace';
