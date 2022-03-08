@@ -23,13 +23,15 @@ npm i medusa-marketplace
 You can then import each of the `MarketplaceModule` into `src/main.ts`:
 
 ```typescript
-import { MarketplaceModule } from 'medusa-marketplace';
+import { ProductModule, UserModule, StoreModule } from 'medusa-marketplace';
 ```
 
-And add the `MarketplaceModule` into the array passed to `Medusa.load`:
+And add the modules into the array passed to `Medusa.load`:
 
 ```typescript
 await new Medusa(rootDir, expressInstance).load([
-  MarketplaceModule
+  UserModule,
+  ProductModule,
+  StoreModule
 ]);
 ```
