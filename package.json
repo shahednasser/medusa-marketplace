@@ -32,7 +32,7 @@
     "medusa-core-utils": "^1.1.31",
     "medusa-interfaces": "^1.2.1",
     "typeorm": "^0.2.41",
-    "medusa-extender": "^1.4.5",
+    "medusa-extender": "^1.6.3",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
