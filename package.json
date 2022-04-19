@@ -45,7 +45,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "medusa-core-utils": "^1.1.31",
-    "medusa-extender": "^1.4.5",
+    "medusa-extender": "^1.6.3",
     "medusa-interfaces": "^1.2.1",
     "mongoose": "^5.13.3",
     "prettier": "^2.5.1",
