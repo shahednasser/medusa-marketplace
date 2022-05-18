@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/shahednasser/medusa-marketplace#readme",
   "peerDependencies": {
-    "@medusajs/medusa": "^1.3.0",
+    "@medusajs/medusa": "1.2.1",
     "express": "^4.17.2",
     "medusa-core-utils": "^1.1.31",
     "medusa-extender": "^1.7.0",
@@ -36,7 +36,7 @@
     "typeorm": "^0.2.41"
   },
   "devDependencies": {
-    "@medusajs/medusa": "^1.3.0",
+    "@medusajs/medusa": "1.2.1",
     "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
@@ -56,6 +56,5 @@
     "tsconfig-paths": "^3.12.0",
     "typeorm": "^0.2.41",
     "typescript": "^4.5.5"
-  },
-  "packageManager": "yarn@3.2.1"
+  }
 }
