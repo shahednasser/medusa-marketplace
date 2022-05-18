@@ -23,6 +23,23 @@ After that, install this plugin with NPM:
 npm i medusa-marketplace
 ```
 
+Make sure that new migrations from the module can be run by adding the property `cliMigrationsDirs` into the exported object in `medusa-config.js`:
+
+```js
+module.exports = {
+  projectConfig: {
+    cliMigrationsDirs: ['node_modules/medusa-marketplace/dist/**/*.migration.js'],
+    //existing options...
+  }
+};
+```
+
+Then, run the migrations after you've run Medusa's migrations:
+
+```bash
+./node_modules/.bin/medex m --run
+```
+
 You can then import each of the modules into `src/main.ts`:
 
 ```typescript
