@@ -8,7 +8,7 @@ import {
 import { NextFunction, Request, Response } from "express";
 
 import { Connection } from "typeorm";
-import ProductSubscriber from "../subscribers/product.subscriber";
+import ProductSubscriber from "./product.subscriber";
 
 @Middleware({
   requireAuth: true,

@@ -7,9 +7,9 @@ import {
 
 import { EntityManager } from "typeorm";
 import { ProductService as MedusaProductService } from "@medusajs/medusa/dist/services";
-import { Product } from "../entities/product.entity";
-import { User } from "../../user/entities/user.entity";
-import UserService from "../../user/services/user.service";
+import { Product } from "./product.entity";
+import { User } from "../user/user.entity";
+import UserService from "../user/user.service";
 
 type ConstructorParams = {
   manager: any;
@@ -25,6 +25,8 @@ type ConstructorParams = {
   imageRepository: any;
   searchService: any;
   userService: UserService;
+  cartRepository: any;
+  priceSelectionStrategy: any;
 };
 
 @Service({ scope: "SCOPED", override: MedusaProductService })

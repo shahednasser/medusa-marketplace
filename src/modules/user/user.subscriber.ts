@@ -10,7 +10,7 @@ import {
   eventEmitter,
 } from "medusa-extender";
 
-import { User } from "../entities/user.entity";
+import { User } from "./user.entity";
 
 @EventSubscriber()
 export default class UserSubscriber implements EntitySubscriberInterface<User> {

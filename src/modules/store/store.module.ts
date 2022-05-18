@@ -1,7 +1,7 @@
 import { Module } from "medusa-extender";
-import { Store } from "./entities/store.entity";
-import StoreRepository from "./repositories/store.repository";
-import StoreService from "./services/store.service";
+import { Store } from "./store.entity";
+import StoreRepository from "./store.repository";
+import StoreService from "./store.service";
 
 @Module({
   imports: [Store, StoreRepository, StoreService],

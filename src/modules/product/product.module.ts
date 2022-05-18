@@ -1,9 +1,9 @@
-import AttachProductSubscribersMiddleware from "./middlewares/product.middleware";
+import AttachProductSubscribersMiddleware from "./product.middleware";
 import { Module } from "medusa-extender";
-import { Product } from "./entities/product.entity";
-import ProductRepository from "./repositories/product.repository";
-import { ProductService } from "./services/product.service";
-import addStoreIdToProduct1645034402086 from "./migrations/product.migration";
+import { Product } from "./product.entity";
+import ProductRepository from "./product.repository";
+import { ProductService } from "./product.service";
+import addStoreIdToProduct1645034402086 from "./product.migration";
 
 @Module({
   imports: [

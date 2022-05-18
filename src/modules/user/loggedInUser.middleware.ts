@@ -5,7 +5,7 @@ import {
 } from "medusa-extender";
 import { NextFunction, Response } from "express";
 
-import UserService from "../services/user.service";
+import UserService from "./user.service";
 
 @Middleware({ requireAuth: true, routes: [{ method: "all", path: "*" }] })
 export class LoggedInUserMiddleware implements MedusaMiddleware {
@@ -14,18 +14,18 @@ export class LoggedInUserMiddleware implements MedusaMiddleware {
     res: Response,
     next: NextFunction
   ): Promise<void> {
-    if (req.user && req.user.userId) {
+    let loggedInUser = null;
+    if (req.user && req.user.userId && /^\/admin/.test(req.originalUrl)) {
       const userService = req.scope.resolve("userService") as UserService;
-      const loggedInUser = await userService.retrieve(req.user.userId, {
+      loggedInUser = await userService.retrieve(req.user.userId, {
         select: ["id", "store_id"],
       });
-
-      req.scope.register({
-        loggedInUser: {
-          resolve: () => loggedInUser,
-        },
-      });
     }
+    req.scope.register({
+      loggedInUser: {
+        resolve: () => loggedInUser,
+      },
+    });
     next();
   }
 }
