@@ -9,9 +9,9 @@ import { CurrencyRepository } from "@medusajs/medusa/dist/repositories/currency"
 import { EntityManager } from "typeorm";
 import EventBusService from "@medusajs/medusa/dist/services/event-bus";
 import { StoreService as MedusaStoreService } from "@medusajs/medusa/dist/services";
-import { Store } from "../entities/store.entity";
-import StoreRepository from "../repositories/store.repository";
-import { User } from "../../user/entities/user.entity";
+import { Store } from "./store.entity";
+import StoreRepository from "./store.repository";
+import { User } from "../user/user.entity";
 
 interface ConstructorParams {
   loggedInUser: User;

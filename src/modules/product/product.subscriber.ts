@@ -6,7 +6,7 @@ import {
 } from "typeorm";
 import { OnMedusaEntityEvent, Utils, eventEmitter } from "medusa-extender";
 
-import { Product } from "../entities/product.entity";
+import { Product } from "./product.entity";
 
 @EventSubscriber()
 export default class ProductSubscriber

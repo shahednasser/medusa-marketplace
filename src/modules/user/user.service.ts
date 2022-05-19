@@ -4,8 +4,8 @@ import { FindConfig } from "@medusajs/medusa/dist/types/common";
 import { MedusaError } from "medusa-core-utils";
 import { UserService as MedusaUserService } from "@medusajs/medusa/dist/services";
 import { Service } from "medusa-extender";
-import { User } from "../entities/user.entity";
-import UserRepository from "../repositories/user.repository";
+import { User } from "./user.entity";
+import UserRepository from "./user.repository";
 
 type ConstructorParams = {
   manager: EntityManager;

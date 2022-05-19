@@ -2,7 +2,7 @@ import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
 
 import { Entity as MedusaEntity } from "medusa-extender";
 import { Product as MedusaProduct } from "@medusajs/medusa/dist";
-import { Store } from "../../store/entities/store.entity";
+import { Store } from "../store/store.entity";
 
 @MedusaEntity({ override: MedusaProduct })
 @Entity()

@@ -1,11 +1,11 @@
-import { AttachUserSubscriberMiddleware } from "./middlewares/userSubscriber.middleware";
-import { LoggedInUserMiddleware } from "./middlewares/loggedInUser.middleware";
+import { AttachUserSubscriberMiddleware } from "./userSubscriber.middleware";
+import { LoggedInUserMiddleware } from "./loggedInUser.middleware";
 import { Module } from "medusa-extender";
-import { User } from "./entities/user.entity";
-import UserRepository from "./repositories/user.repository";
-import { UserRouter } from "./routers/user.router";
-import UserService from "./services/user.service";
-import addStoreIdToUser1644946220401 from "./migrations/user.migration";
+import { User } from "./user.entity";
+import UserRepository from "./user.repository";
+import { UserRouter } from "./user.router";
+import UserService from "./user.service";
+import addStoreIdToUser1644946220401 from "./user.migration";
 
 @Module({
   imports: [
