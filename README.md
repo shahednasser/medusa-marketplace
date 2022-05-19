@@ -2,6 +2,8 @@
 
 Plugin to add a marketplace to Medusa. It is built using [Meduse Extender](https://github.com/adrien2p/medusa-extender).
 
+This plugin requires `@medusajs/medusa` version > 1.3.0 and Medusa Extender version `1.6.5`.
+
 ## Features
 
 1. Link users to stores.
