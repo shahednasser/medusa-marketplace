@@ -13,7 +13,7 @@ import UserService from "../user/user.service";
 
 type ConstructorParams = {
   manager: any;
-  loggedInUser: User;
+  loggedInUser?: User;
   productRepository: any;
   productVariantRepository: any;
   productOptionRepository: any;
@@ -49,7 +49,9 @@ export class ProductService extends MedusaProductService {
   }
 
   prepareListQuery_(selector: object, config: object): object {
-    const loggedInUser = this.container.loggedInUser;
+    const loggedInUser = Object.keys(this.container).includes("loggedInUser")
+      ? this.container.loggedInUser
+      : null;
     if (loggedInUser) {
       selector["store_id"] = loggedInUser.store_id;
     }

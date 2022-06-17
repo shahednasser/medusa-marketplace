@@ -8,13 +8,14 @@ import {
 import { CurrencyRepository } from "@medusajs/medusa/dist/repositories/currency";
 import { EntityManager } from "typeorm";
 import EventBusService from "@medusajs/medusa/dist/services/event-bus";
+import { Invite } from "../invite/invite.entity";
 import { StoreService as MedusaStoreService } from "@medusajs/medusa/dist/services";
 import { Store } from "./store.entity";
 import StoreRepository from "./store.repository";
 import { User } from "../user/user.entity";
 
 interface ConstructorParams {
-  loggedInUser: User;
+  loggedInUser?: User;
   manager: EntityManager;
   storeRepository: typeof StoreRepository;
   currencyRepository: typeof CurrencyRepository;
@@ -52,12 +53,34 @@ export default class StoreService extends MedusaStoreService {
     params: MedusaEventHandlerParams<User, "Insert">
   ): Promise<EntityEventType<User, "Insert">> {
     const { event } = params;
-    const createdStore = await this.withTransaction(
-      event.manager
-    ).createForUser(event.entity);
-    if (!!createdStore) {
-      event.entity.store_id = createdStore.id;
+    let store_id = Object.keys(this.container).includes("loggedInUser")
+      ? this.container.loggedInUser.store_id
+      : null;
+    if (!store_id) {
+      const createdStore = await this.withTransaction(
+        event.manager
+      ).createForUser(event.entity);
+      if (!!createdStore) {
+        store_id = createdStore.id;
+      }
     }
+
+    event.entity.store_id = store_id;
+
+    return event;
+  }
+
+  @OnMedusaEntityEvent.Before.Insert(Invite, { async: true })
+  public async addStoreToInvite(
+    params: MedusaEventHandlerParams<Invite, "Insert">
+  ): Promise<EntityEventType<Invite, "Insert">> {
+    const { event } = params;
+    const store_id = this.container.loggedInUser.store_id;
+
+    if (!event.entity.store_id && store_id) {
+      event.entity.store_id = store_id;
+    }
+
     return event;
   }
 
@@ -80,7 +103,7 @@ export default class StoreService extends MedusaStoreService {
    * @param relations
    */
   public async retrieve(relations: string[] = []) {
-    if (!this.container.loggedInUser) {
+    if (!Object.keys(this.container).includes("loggedInUser")) {
       return super.retrieve(relations);
     }
 
