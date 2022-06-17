@@ -26,7 +26,9 @@ export default async (req, res) => {
       );
     }
 
-    const invite = await inviteService.retrieve(decoded.invite_id);
+    const invite = await inviteService
+      .withTransaction(m)
+      .retrieve(decoded.invite_id);
 
     const store_id = invite ? invite.store_id : null;
 
@@ -36,7 +38,7 @@ export default async (req, res) => {
 
     if (store_id) {
       const userService: UserService = req.scope.resolve("userService");
-      await userService.addUserToStore(user.id, store_id);
+      await userService.withTransaction(m).addUserToStore(user.id, store_id);
     }
 
     res.sendStatus(200);

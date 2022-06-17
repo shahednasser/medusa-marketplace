@@ -1,7 +1,7 @@
 import UserService from "../user/user.service";
 import _ from "lodash";
 
-export default (permissions: any[]) => {
+export default (permissions: Record<string, unknown>[]) => {
   return async (req, res, next) => {
     const userService = req.scope.resolve("userService") as UserService;
     const loggedInUser = await userService.retrieve(req.user.userId, {

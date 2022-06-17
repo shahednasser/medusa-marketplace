@@ -34,6 +34,24 @@ export class InviteService extends MedusaInviteService {
     this.inviteRepository = container.inviteRepository;
   }
 
+  withTransaction(transactionManager: EntityManager): InviteService {
+    if (!transactionManager) {
+      return this;
+    }
+
+    const cloned = new InviteService(
+      {
+        ...this.container,
+        manager: transactionManager,
+      },
+      this.configModule_
+    );
+
+    cloned.transactionManager = transactionManager;
+
+    return cloned;
+  }
+
   async retrieve(invite_id: string): Promise<Invite | null> {
     return await this.atomicPhase_(async (m) => {
       const inviteRepo: InviteRepository = m.getCustomRepository(
