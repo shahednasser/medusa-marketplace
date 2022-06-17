@@ -33,7 +33,7 @@ Make sure that new migrations from the module can be run by adding the property 
 ```js
 module.exports = {
   projectConfig: {
-    cliMigrationsDirs: ['node_modules/medusa-marketplace/dist/**/*.migration.js'],
+    cli_migration_dirs: ['node_modules/medusa-marketplace/dist/**/*.migration.js'],
     //existing options...
   }
 };
