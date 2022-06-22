@@ -23,7 +23,7 @@ type InjectedDependencies = {
   draftOrderService: any;
   inventoryService: any;
   eventBusService: any;
-  loggedInUser: User;
+  loggedInUser?: User;
   orderService: OrderService;
 };
 
@@ -43,7 +43,10 @@ export class OrderService extends MedusaOrderService {
     selector: object,
     config: { relations: string[]; select: string[] }
   ): object {
-    if (this.container.loggedInUser && this.container.loggedInUser.store_id) {
+    if (
+      Object.keys(this.container).includes("loggedInUser") &&
+      this.container.loggedInUser.store_id
+    ) {
       selector["store_id"] = this.container.loggedInUser.store_id;
     }
 
