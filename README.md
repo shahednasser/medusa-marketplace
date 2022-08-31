@@ -18,7 +18,7 @@ Plugin to add a marketplace to Medusa. It is built using [Meduse Extender](https
 
 ## Installation
 
-You first need to install Medusa Extender in your Medusa store, so please [follow the instructions to install it](https://github.com/adrien2p/medusa-extender#integration-in-an-existing-medusa-project).
+You first need to install Medusa Extender in your Medusa store, so please [follow the instructions to install it](https://github.com/adrien2p/medusa-extender#existing-medusa-project).
 
 After that, install this plugin with NPM:
 
