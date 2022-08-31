@@ -2,6 +2,8 @@
 
 Plugin to add a marketplace to Medusa. It is built using [Meduse Extender](https://github.com/adrien2p/medusa-extender).
 
+> This plugin is currently only compatible witb Medusa v1.3.3 and Medusa Extender v1.7.2
+
 ## Features
 
 1. Link users to stores.
@@ -46,13 +48,13 @@ Then, run the migrations after you've run Medusa's migrations:
 You can then import each of the modules into `src/main.ts`:
 
 ```typescript
-import { ProductModule, UserModule, StoreModule, OrderModule } from 'medusa-marketplace';
+import { ProductModule, UserModule, StoreModule, OrderModule, InviteModule, RoleModule, PermissionModule } from 'medusa-marketplace';
 ```
 
 And add the modules into the array passed to `Medusa.load`:
 
 ```typescript
-await new Medusa(rootDir, expressInstance).load([
+await new Medusa(__dirname + '/../', expressInstance).load([
   UserModule,
   ProductModule,
   StoreModule,
