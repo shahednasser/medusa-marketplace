@@ -2,7 +2,7 @@
 
 Plugin to add a marketplace to Medusa. It is built using [Meduse Extender](https://github.com/adrien2p/medusa-extender).
 
-> This plugin is currently only compatible witb Medusa v1.3.1 and Medusa Extender v1.7.2
+> :warning: this plugin is now deprecated and it's recommended to use [this repository](https://github.com/shahednasser/medusa-1.8-marketplace-tutorial) instead.
 
 ## Features
 
